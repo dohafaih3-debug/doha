@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maison de Bonheur – Chocolaterie Artisanale</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: url('image/backg.jpeg') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+}
+
+/* HEADER + NAV */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 40px;
+  letter-spacing: 2px;
+  color: #E63946;
+  text-shadow: 1px 1px 6px #000;
+}
+
+/* NAV LINKS */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+nav a {
+  color: #f8f9fa;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #FFD700;
+}
+
+/* BURGER (MOBILE) */
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.burger span {
+  width: 24px;
+  height: 2px;
+  background: #f8f9fa;
+  border-radius: 3px;
+}
+
+/* HERO */
+.hero {
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* texte sur le côté gauche */
+  text-align: left;
+  margin: 120px 30px 30px;
+}
+
+.hero-box {
+  max-width: 480px;
+  background: rgba(59, 44, 37, 0.9); /* chocolat foncé */
+  border-radius: 20px;
+  padding: 25px 35px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.7);
+  border: 1px solid #D2691E; /* cocoa brown [web:50] */
+}
+
+.hero-box h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  color: #FBEFE6; /* crème lisible [web:48] */
+  letter-spacing: 0.5px;
+}
+
+.hero-box p {
+  margin-top: 10px;
+  font-size: 17px;
+  color: #FFE5C2;
+}
+
+/* PRODUCTS */
+.products {
+  padding: 60px 50px;
+  background: rgba(0,0,0,0.75);
+}
+
+.products h2 {
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 32px;
+  letter-spacing: 1px;
+  color: #FFD700;
+  text-shadow: 1px 1px 3px #3b2c25;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: #fff0e5;
+  color: #3b2c25;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.07);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+}
+
+.card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+}
+
+.card .content {
+  padding: 20px;
+  text-align: center;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.card p {
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #5c4033;
+  font-size: 18px;
+}
+
+.quantity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.quantity button {
+  background: #8B4513;
+  color: white;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.quantity button:hover {
+  background: #D2691E;
+}
+
+.quantity span {
+  margin: 0 15px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.card button {
+  background: linear-gradient(135deg, #8B4513, #D2691E);
+  color: white;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.card button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #D2691E, #8B4513);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+/* CART */
+.cart {
+  background: #f3e0d2;
+  color: #3b2c25;
+  padding: 40px;
+  margin: 50px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+.cart h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.cart ul {
+  list-style: none;
+  padding-left: 0;
+  font-size: 18px;
+}
+
+.cart li {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.cart li:hover {
+  transform: scale(1.02);
+}
+
+.cart li button {
+  background: #D2691E;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.cart li button:hover {
+  background: #8B4513;
+}
+
+#total {
+  margin-top: 20px;
+  font-size: 22px;
+  font-weight: 600;
+  text-align: right;
+}
+
+.cart button.send {
+  margin-top: 15px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #8B4513, #D2691E);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cart button.send:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #D2691E, #8B4513);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+/* CONTACT */
+.contact {
+  background: rgba(0,0,0,0.7);
+  padding: 50px 40px;
+  text-align: center;
+  border-radius: 15px;
+  margin: 50px;
+}
+
+.contact h2 {
+  font-size: 32px;
+  margin-bottom: 25px;
+  color: #FFD700;
+}
+
+.contact p {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.contact a {
+  color: #FFD700;
+  text-decoration: underline;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 25px;
+  background: rgba(0,0,0,0.7);
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav ul {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: rgba(0,0,0,0.9);
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px 25px;
+    display: none;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  .burger {
+    display: flex;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    margin: 110px 20px 20px;
+  }
+  .products {
+    padding: 40px 20px;
+  }
+  .products h2 {
+    font-size: 26px;
+  }
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  .cart, .contact {
+    margin: 20px;
+    padding: 20px;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <span>🍫</span>
+      <h1>Maison de Bonheur</h1>
+    </div>
+
+    <nav>
+      <div class="burger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul id="navMenu">
+        <li><a href="#hero">Accueil</a></li>
+        <li><a href="#products">Chocolats</a></li>
+        <li><a href="#cart">Panier</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="hero">
+  <div class="hero-box">
+    <h2>Collection de chocolats Maison de Bonheur</h2>
+    <p>Pour sublimer chacun de vos moments d’exception.</p>
+  </div>
+</section>
+
+<section class="products" id="products">
+  <h2>Nos créations chocolatées</h2>
+
+  <div class="grid">
+
+    <!-- PRODUCT 1 -->
+    <div class="card">
+      <img src="image/choco4.jpeg" alt="Chocolate Balls">
+      <div class="content">
+        <h3>Chocolate Balls</h3>
+        <p>200 DH</p>
+        <div class="quantity">
+          <button onclick="changeQuantity('Chocolate Balls', -1)">-</button>
+          <span id="qty-Chocolate Balls">1</span>
+          <button onclick="changeQuantity('Chocolate Balls', 1)">+</button>
+        </div>
+        <button onclick="addToCart('Chocolate Balls', 200)">Ajouter au panier</button>
+      </div>
+    </div>
+
+    <!-- PRODUCT 2 -->
+    <div class="card">
+      <img src="image/choco3.jpeg" alt="Chocolate Sweets">
+      <div class="content">
+        <h3>Chocolate Sweets</h3>
+        <p>250 DH</p>
+        <div class="quantity">
+          <button onclick="changeQuantity('Chocolate Sweets', -1)">-</button>
+          <span id="qty-Chocolate Sweets">1</span>
+          <button onclick="changeQuantity('Chocolate Sweets', 1)">+</button>
+        </div>
+        <button onclick="addToCart('Chocolate Sweets', 250)">Ajouter au panier</button>
+      </div>
+    </div>
+
+    <!-- PRODUCT 3 -->
+    <div class="card">
+      <img src="image/choco2.jpeg" alt="Cocoa Chocolate">
+      <div class="content">
+        <h3>Cocoa Chocolate</h3>
+        <p>150 DH</p>
+        <div class="quantity">
+          <button onclick="changeQuantity('Cocoa Chocolate', -1)">-</button>
+          <span id="qty-Cocoa Chocolate">1</span>
+          <button onclick="changeQuantity('Cocoa Chocolate', 1)">+</button>
+        </div>
+        <button onclick="addToCart('Cocoa Chocolate', 150)">Ajouter au panier</button>
+      </div>
+    </div>
+
+    <!-- PRODUCT 4 -->
+    <div class="card">
+      <img src="image/choco1.jpeg" alt="Chocolate Plate">
+      <div class="content">
+        <h3>Chocolate Plate</h3>
+        <p>250 DH</p>
+        <div class="quantity">
+          <button onclick="changeQuantity('Chocolate Plate', -1)">-</button>
+          <span id="qty-Chocolate Plate">1</span>
+          <button onclick="changeQuantity('Chocolate Plate', 1)">+</button>
+        </div>
+        <button onclick="addToCart('Chocolate Plate', 250)">Ajouter au panier</button>
+      </div>
+    </div>
+
+    <!-- PRODUCT 5 -->
+    <div class="card">
+      <img src="image/choco5.jpeg" alt="Coffee Chocolate">
+      <div class="content">
+        <h3>Coffee Chocolate</h3>
+        <p>500 DH</p>
+        <div class="quantity">
+          <button onclick="changeQuantity('Coffee Chocolate', -1)">-</button>
+          <span id="qty-Coffee Chocolate">1</span>
+          <button onclick="changeQuantity('Coffee Chocolate', 1)">+</button>
+        </div>
+        <button onclick="addToCart('Coffee Chocolate', 500)">Ajouter au panier</button>
+      </div>
+    </div>
+
+    <!-- PRODUCT 6 -->
+    <div class="card">
+      <img src="image/choco6.jpeg" alt="Caramel Chocolate">
+      <div class="content">
+        <h3>Caramel Chocolate</h3>
+        <p>300 DH</p>
+        <div class="quantity">
+          <button onclick="changeQuantity('Caramel Chocolate', -1)">-</button>
+          <span id="qty-Caramel Chocolate">1</span>
+          <button onclick="changeQuantity('Caramel Chocolate', 1)">+</button>
+        </div>
+        <button onclick="addToCart('Caramel Chocolate', 300)">Ajouter au panier</button>
+      </div>
+    </div>
+
+    <!-- PRODUCT 7 -->
+    <div class="card">
+      <img src="image/choco7.jpeg" alt="Noisette Choco">
+      <div class="content">
+        <h3>Noisette Choco</h3>
+        <p>159 DH</p>
+        <div class="quantity">
+          <button onclick="changeQuantity('Noisette Choco', -1)">-</button>
+          <span id="qty-Noisette Choco">1</span>
+          <button onclick="changeQuantity('Noisette Choco', 1)">+</button>
+        </div>
+        <button onclick="addToCart('Noisette Choco', 159)">Ajouter au panier</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="cart" id="cart">
+  <h2>🛒 Votre sélection</h2>
+  <ul id="cartList"></ul>
+  <h3 id="total">Total: 0 DH</h3>
+  <button class="send" onclick="sendOrder()">Valider la commande 📩</button>
+</section>
+
+<section class="contact" id="contact">
+  <h2>📩 Contact</h2>
+  <p>📞 Téléphone : 0720399701</p>
+  <p>✉ Email : <a href="mailto:dohafaih3@gmail.com">dohafaih3@gmail.com</a></p>
+</section>
+
+<footer>
+  © 2026 Maison de Bonheur — Chocolaterie artisanale
+</footer>
+
+<script>
+let cart = [];
+let total = 0;
+let quantities = {};
+
+function toggleMenu() {
+  const menu = document.getElementById('navMenu');
+  menu.classList.toggle('show');
+}
+
+function changeQuantity(name, delta) {
+  if (!quantities[name]) quantities[name] = 1;
+  quantities[name] += delta;
+  if (quantities[name] < 1) quantities[name] = 1;
+  document.getElementById(`qty-${name}`).textContent = quantities[name];
+}
+
+function addToCart(name, price) {
+  let qty = quantities[name] || 1;
+  for (let i = 0; i < qty; i++) {
+    cart.push({name, price});
+    total += price;
+  }
+  quantities[name] = 1;
+  document.getElementById(`qty-${name}`).textContent = 1;
+  updateCart();
+}
+
+function removeFromCart(index) {
+  total -= cart[index].price;
+  cart.splice(index, 1);
+  updateCart();
+}
+
+function updateCart() {
+  const list = document.getElementById("cartList");
+  list.innerHTML = "";
+  cart.forEach((item, index) => {
+    let li = document.createElement("li");
+    li.innerHTML = `${item.name} - ${item.price} DH <button onclick="removeFromCart(${index})">Retirer</button>`;
+    list.appendChild(li);
+  });
+  document.getElementById("total").textContent = "Total: " + total + " DH";
+}
+
+function sendOrder() {
+  if(cart.length === 0){
+    alert("Le panier est vide ❌");
+    return;
+  }
+
+  let message = "🍫 Nouvelle commande - Maison de Bonheur\n\n";
+  cart.forEach(item => {
+    message += "• " + item.name + " - " + item.price + " DH\n";
+  });
+
+  message += "\nTotal: " + total + " DH";
+
+  let phone = "212720399701";
+  let url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+
+  window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>

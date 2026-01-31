@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Maison de Bonheur – Chocolaterie Artisanale</title>
+<meta name="author" content="Doha Faih">
+<meta name="student-ep" content="24002939">
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap');
@@ -16,13 +18,12 @@
 }
 
 body {
-  background: url('image/backg.jpeg') no-repeat center center fixed;
+  background: url('backg.jpeg') no-repeat center center fixed;
   background-size: cover;
   color: white;
-  padding-top: 100px; /* space for fixed header */
+  padding-top: 100px;
 }
 
-/* HEADER */
 header {
   position: fixed;
   top: 0;
@@ -43,7 +44,6 @@ header h1 {
   text-shadow: 1px 1px 6px #000;
 }
 
-/* HERO */
 .hero {
   display: flex;
   justify-content: center;
@@ -70,7 +70,6 @@ header h1 {
   font-size: 17px;
 }
 
-/* PRODUCTS */
 .products {
   padding: 60px 50px;
   background: rgba(0,0,0,0.7);
@@ -117,15 +116,16 @@ header h1 {
   margin-bottom: 10px;
   font-size: 22px;
   font-weight: 600;
+  color: #A0522D;
+  text-shadow: 1px 1px 3px #000;
 }
 
 .card p {
   font-weight: bold;
-  color: #5c4033;
+  color: #D2B48C;
   margin-bottom: 15px;
 }
 
-/* Quantity */
 .quantity {
   display: flex;
   justify-content: center;
@@ -153,7 +153,6 @@ header h1 {
   font-weight: bold;
 }
 
-/* Add to cart button */
 .card button {
   background: linear-gradient(135deg, #8B4513, #D2691E);
   color: white;
@@ -171,7 +170,6 @@ header h1 {
   background: linear-gradient(135deg, #D2691E, #8B4513);
 }
 
-/* CART */
 .cart {
   background: #f3e0d2;
   padding: 40px;
@@ -234,7 +232,6 @@ header h1 {
   background: linear-gradient(135deg, #D2691E, #8B4513);
 }
 
-/* CONTACT */
 .contact {
   background: rgba(0,0,0,0.7);
   padding: 50px;
@@ -254,7 +251,6 @@ header h1 {
   text-decoration: underline;
 }
 
-/* FOOTER */
 footer {
   text-align: center;
   padding: 25px;
@@ -262,7 +258,6 @@ footer {
   font-size: 18px;
 }
 
-/* Responsive */
 @media(max-width:768px){
   .grid{
     grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
@@ -295,7 +290,7 @@ footer {
   <div class="grid">
 
     <div class="card">
-      <img src="image/choco1.jpeg" alt="Chocolate Plate">
+      <img src="choco1.jpeg" alt="Chocolate Plate">
       <div class="content">
         <h3>Chocolate Plate</h3>
         <p>250 DH</p>
@@ -309,7 +304,7 @@ footer {
     </div>
 
     <div class="card">
-      <img src="image/choco2.jpeg" alt="Cocoa Chocolate">
+      <img src="choco2.jpeg" alt="Cocoa Chocolate">
       <div class="content">
         <h3>Cocoa Chocolate</h3>
         <p>150 DH</p>
@@ -323,7 +318,7 @@ footer {
     </div>
 
     <div class="card">
-      <img src="image/choco3.jpeg" alt="Chocolate Sweets">
+      <img src="choco3.jpeg" alt="Chocolate Sweets">
       <div class="content">
         <h3>Chocolate Sweets</h3>
         <p>250 DH</p>
@@ -337,7 +332,7 @@ footer {
     </div>
 
     <div class="card">
-      <img src="image/choco4.jpeg" alt="Chocolate Balls">
+      <img src="choco4.jpeg" alt="Chocolate Balls">
       <div class="content">
         <h3>Chocolate Balls</h3>
         <p>200 DH</p>
@@ -351,7 +346,7 @@ footer {
     </div>
 
     <div class="card">
-      <img src="image/choco5.jpeg" alt="Coffee Chocolate">
+      <img src="choco5.jpeg" alt="Coffee Chocolate">
       <div class="content">
         <h3>Coffee Chocolate</h3>
         <p>500 DH</p>
@@ -365,7 +360,7 @@ footer {
     </div>
 
     <div class="card">
-      <img src="image/choco6.jpeg" alt="Caramel Chocolate">
+      <img src="choco6.jpeg" alt="Caramel Chocolate">
       <div class="content">
         <h3>Caramel Chocolate</h3>
         <p>300 DH</p>
@@ -379,7 +374,7 @@ footer {
     </div>
 
     <div class="card">
-      <img src="image/choco7.jpeg" alt="Noisette Choco">
+      <img src="choco7.jpeg" alt="Noisette Choco">
       <div class="content">
         <h3>Noisette Choco</h3>
         <p>159 DH</p>
@@ -470,3 +465,5 @@ function sendOrder(){
 
 </body>
 </html>
+
+
